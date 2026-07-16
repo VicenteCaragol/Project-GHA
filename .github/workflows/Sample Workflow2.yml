@@ -1,0 +1,17 @@
+name: sample-worfklow
+on: workflow_dispatch
+
+jobs:
+  job1:
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step-1
+        run: |
+          pwd
+          ls -ltr
+          hostname
+      - name: Step-2 Checkout
+        uses: actions/checkout@v5.0.0
+      - name: Step-3
+        run: sleep 10
