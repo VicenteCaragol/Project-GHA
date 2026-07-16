@@ -3,15 +3,15 @@ on: push
 
 jobs:
   job1:
-  name: job1
-  runs-on: ubuntu-latest
-  steps:
-    - name: Running single command in job1
-      run: echo "Hello, world!"
-    - name: Checking OS Release for Github Runner
-      run: cat /etc/os-release
-    - name: Calling Sleep
-      run: sleep 10
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running single command in job1
+        run: echo "Hello, world!"
+      - name: Checking OS Release for Github Runner
+        run: cat /etc/os-release
+      - name: Calling Sleep
+        run: sleep 10
 
   job2:
     name: JOB2
