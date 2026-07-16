@@ -1,4 +1,4 @@
-name: sample-worfklow
+name: sample-worfklow2
 on: workflow_dispatch
 
 jobs:
