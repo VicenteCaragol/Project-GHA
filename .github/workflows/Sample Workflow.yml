@@ -14,7 +14,7 @@ jobs:
         run: sleep 10
 
   job2:
-    name: JOB2
+    name: job2
     runs-on: ubuntu-latest
     steps:
       - name: Checking name of Runner
@@ -24,3 +24,12 @@ jobs:
           echo "Hello, world!"
           echo "Current date and time: $(date)"
           sleep 20
+
+  job3:
+    name: job3
+    needs: [job1, job2]
+    runs-on: windows-latest
+    steps:
+      - name: Dependent Windows job
+        shell: pwsh
+        run: get-computerinfo
