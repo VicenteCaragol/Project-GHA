@@ -1,7 +1,7 @@
 name: sample-worfklow
 on: push
 
-job:
+jobs:
   job1:
   name: job1
   runs-on: ubuntu-latest
