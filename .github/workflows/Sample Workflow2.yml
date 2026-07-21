@@ -1,17 +1,27 @@
 name: sample-worfklow2
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
 
 jobs:
-  job1:
-    name: job1
+  unit-tests:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Step-1
-        run: |
-          pwd
-          ls -ltr
-          hostname
-      - name: Step-2 Checkout
+      - name: Checkout code
         uses: actions/checkout@v5.0.0
-      - name: Step-3
-        run: sleep 10
+      - name: Setup Python
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version: '3.10'
+      - name: Install Dependencies
+        run: |
+          pip install -r pyproject.toml
+      - name: Run Tests
+        run: pytest -v
