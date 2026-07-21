@@ -32,8 +32,8 @@ jobs:
 
       - name: Run Tests
         run: |
-          uv run pytest -v
-          pytest --junitxml=reports/test-results.xml --cov=. --cov-report=xml --cov-report=term-missing -v
+          mkdir -p reports
+          uv run pytest --junitxml=reports/test-results.xml --cov=. --cov-report=xml --cov-report=term-missing -v
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v5.0.0
