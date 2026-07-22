@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 
 # test app
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 _tasks: list[dict] = []
 _next_id = 1
