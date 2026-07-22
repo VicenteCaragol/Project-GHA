@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v5.0.0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           enable-cache: true
 
@@ -28,12 +28,12 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: uv sync --frozen
+        run: uv sync --frozen --no-build
 
       - name: Run Tests
         run: |
           mkdir -p reports
-          uv run pytest --junitxml=reports/test-results.xml --cov=. --cov-report=xml --cov-report=term-missing -v
+          uv run --frozen --no-build pytest --junitxml=reports/test-results.xml --cov=. --cov-report=xml --cov-report=term-missing -v
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v5.0.0
